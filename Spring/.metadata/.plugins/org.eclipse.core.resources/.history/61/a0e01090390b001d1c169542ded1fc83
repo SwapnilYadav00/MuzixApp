@@ -1,0 +1,10 @@
+package com.example.AngularspringBootuserRegister.Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.AngularspringBootuserRegister.model.User;
+
+public interface UserRepo extends JpaRepository<User, int>{
+
+	
+}

@@ -1,0 +1,5 @@
+package com.example.AngularspringBootuserRegister.Repository;
+
+public class UserRepo {
+
+}
