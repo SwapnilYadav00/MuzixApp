@@ -2,7 +2,7 @@
 
     <div class="type">
         <div class="typewriter">
-            <h1>Welcome to Musix App. Listen to your favourite musics with us!!</h1>
+            <h1>Welcome To Muzix App. Listen To Your Favourite Music With Us !</h1>
 
         </div>
     </div>
@@ -10,18 +10,16 @@
     <div class="homebuttons">
 
 
-        <button class="but1" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-        <button class="but2" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</button>
-        <br>
-        <br>
-        <button class="but3" style="width:auto;" routerLink="/dashboard">Continue without Login..</button>
+        <button class="but1" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">LOGIN</button>
+        <button class="but2" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">REGISTER</button>
+        <button class="but3" style="width:auto;" routerLink="/dashboard">CONTINUE WITHOUT LOGIN</button>
     </div>
 
     <div id="id01" class="modal">
         <form class="modal-content animate container" [formGroup]="loginForm" (ngSubmit)="signIn()">
 
             <div class="imgcontainer">
-                <h1>Sign In Form</h1>
+                <h1>Login</h1>
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
             </div>
             <div>
@@ -70,7 +68,7 @@
         <form class="modal-content animate" [formGroup]="registerForm">
 
             <div class="imgcontainer">
-                <h1>Sign Up Form</h1>
+                <h1>REGISTRATION</h1>
                 <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
             </div>
 

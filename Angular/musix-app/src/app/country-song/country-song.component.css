@@ -65,17 +65,20 @@ h1{
     
 }
 mat-card{
-    margin: 40px;
-    padding:20px;
+    margin: 10px;
+    padding:10px;
     position: relative;
-    border-radius: 11px;
-    width: 700px;
+    border-radius: 20px;
+    border-color: #000000;
+    border-style: double;
+    width: 280px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 mat-icon{
     position: absolute;
     top: 0;
     right: 0;
+    background-color: #000000;
 }
 .icon-actions{
     position: relative;
@@ -101,8 +104,15 @@ mat-icon{
 }
 
 .material-icons{
-    color: rgb(92, 85, 99); 
+    color: white;
   }
+  mat-icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 10px;
+    background-color: #000000;
+}
 
   /* mat-card{
       background-image: url("https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583246/AAA/2.jpg");
@@ -117,8 +127,10 @@ mat-icon{
     text-align: justify;  /* For Edge */
     text-align-last: right;
     cursor: pointer;
-    padding: 5px;
-    color: rgb(73, 35, 113); 
+    padding: 10px;
+    margin: 5px;
+    color: white; 
+    
   }
   mat-accordion{
       margin: 10px;
@@ -165,4 +177,9 @@ mat-form-field.mat-form-field-outline {
         padding: 10px;
         margin: 5px;
         width: 20vw;
+    }
+    .btn-play-stop button{
+        color: white;
+        background-color: #000000;
+        margin: 10px;
     }

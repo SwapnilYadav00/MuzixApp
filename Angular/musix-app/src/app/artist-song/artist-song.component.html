@@ -1,5 +1,5 @@
 <div class="btn-group" style="width:100%">
-  <button style="width:33.3%; background-color: rgb(136, 128, 201); color: black;" > Artist Wise Songs</button>
+  <button style="width:33.3%; background-color: white; color: black;" > Artist Wise Songs</button>
   <button style="width:33.3%" class="notonthis" (click)="goToAlbum()"> Album Wise Songs</button>
   <button style="width:33.3%" class="notonthis" (click)="goToCountry()"> Video Songs</button>
 </div>
@@ -25,12 +25,12 @@
       <div class="keep-c-toggle-view">
         
         
-        <span class="material-icons addtofav myDIV1" style="float: left;" (click)="addtorecommend(music)"> recommend</span>
+        <span class="material-icons addtofav myDIV1" style="float: left;background-color: #000000" (click)="addtorecommend(music)"> recommend</span>
         <span class="hide1" style="float: left;" ><b> &nbsp; Add to recommend</b></span>
         
 
 
-        <span class="material-icons addtofav myDIV" style="float: right;" (click)="addtofav(music)"> library_add</span>
+        <span class="material-icons addtofav myDIV" style="float: right;background-color: #000000" (click)="addtofav(music)"> library_add</span>
 
         
         <div class="hide" style="float: right;"><b>Add to Favourite &nbsp;</b></div>
@@ -104,10 +104,10 @@
           
           <br>
           <br>
-          
-          <button #playBtn mat-flat-button color="primary" (click)="playSong(music)">PLAY</button>
-            <button #stopBtn mat-button color="primary" (click)="stopSong(music)">STOP</button>
-           
+          <div class="btn-play-stop">
+          <button  #playBtn mat-flat-button color="black" (click)="playSong(music)">PLAY</button>
+            <button  #stopBtn mat-button color="white" (click)="stopSong(music)">STOP</button>
+          </div>
        
     </mat-card> 
 

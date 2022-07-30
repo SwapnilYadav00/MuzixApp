@@ -13,7 +13,7 @@
         <div class="divif" *ngIf="isLoggedin; else elseimg">
 
             <!-- <img class="img-responsive img-size" src={{userurl}}> -->
-            <img class="img-responsive img-size" src="../../assets/images/pngwing.com.png">
+            <img class="img-responsive img-size" src="../../assets/images/user.png">
 
         </div>
 
@@ -31,6 +31,7 @@
           </span>
           
       </a>
+      <mat-divider></mat-divider>
 
             <br>
             <a mat-list-item class="nav2" routerLink="/recommend">Recommended Songs
@@ -38,20 +39,20 @@
           recommend
           </span>
     </a>
-
+    <mat-divider></mat-divider>
             <br>
             <a mat-list-item class="nav2" routerLink="/country">Country Special Songs
         <span class="material-icons deeppurple">
           grade
           </span>
     </a>
-
+    <mat-divider></mat-divider>
             <!-- <a mat-list-item href="#">Link 3</a> -->
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <mat-toolbar color="primary">
-            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-toolbar style="background-image: linear-gradient(360deg,#3498db 25%,#8e44dd 75%);">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" style="margin: 10px ;">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
 
@@ -90,7 +91,7 @@
 
 
             <mat-toolbar-row color="primary">
-                <span routerLink="" class="musix">Musix App</span>
+                <span routerLink="" class="musix">Muzix App</span>
                 <span class="example-spacer"></span>
                 <mat-icon class="material-icons home" aria-hidden="true" routerLink="">
                     home
@@ -100,7 +101,7 @@
             <mat-toolbar-row>
 
                 <marquee direction="down" behavior="alternate" style="border:none">
-                    <marquee behavior="alternate" scrollamount="18">
+                    <marquee behavior="alternate" scrollamount="10">
                         Let The Music Take You Away!
                     </marquee>
                 </marquee>

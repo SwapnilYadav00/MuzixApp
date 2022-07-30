@@ -1,6 +1,6 @@
 
 .btn-group button {
-    background-color: rgb(93, 22, 169);
+    background-color:black;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     color: white; /* White text */
     padding: 10px 24px; /* Some padding */
@@ -32,7 +32,7 @@
 }
 
 .card-container {
-    margin: 20px auto;
+    margin: 10px auto;
     width: 100%;
     text-align: center;
 }
@@ -68,11 +68,11 @@
     
 }
 mat-card{
-    margin: 40px;
-    padding:20px;
+    margin: 10px;
     position: relative;
-    border-radius: 11px;
-    width: 700px;
+    border-radius: 30px;
+    border-style: double;
+    width: 45%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
 }
 mat-icon{

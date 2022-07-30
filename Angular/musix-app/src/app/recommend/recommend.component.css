@@ -24,7 +24,7 @@
 .noteCard{
     width:20vw;
     margin:20px;
-    border:2px solid rgb(207, 143, 233);
+    border:2px solid white;
     display: flex;
     flex-direction: column;
 }
@@ -39,17 +39,20 @@
     
 }
 mat-card{
-    margin: 40px;
-    padding:20px;
+    margin: 10px;
+    padding:10px;
     position: relative;
-    border-radius: 11px;
-    width: 700px;
+    border-radius: 20px;
+    border-color: #000000;
+    border-style: double;
+    width: 280px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
 }
 mat-icon{
     position: absolute;
     top: 0;
     right: 0;
+    background-color: #000000;
 }
 .icon-actions{
     position: relative;
@@ -75,8 +78,15 @@ mat-icon{
 }
 
 .material-icons{
-    color: rgb(92, 85, 99); 
+    color: white;
   }
+  mat-icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 10px;
+    background-color: #000000;
+}
 
   /* mat-card{
       background-image: url("https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583246/AAA/2.jpg");
@@ -95,7 +105,7 @@ mat-icon{
     margin: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 12px;
-    background-color: #5e339d;
+    background-color: black;
     width: 20px;
     float: right;
     color: white;
@@ -127,7 +137,7 @@ mat-icon{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-size: x-large;
     color: #fff;
-    background-color: #6a2dc6;
+    background-color: black;
     border-radius: 12px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -138,3 +148,8 @@ mat-icon{
   .but2:hover{
     cursor: pointer;
   }
+  .btn-play-stop button{
+    color: white;
+    background-color: #000000;
+    margin: 10px;
+}

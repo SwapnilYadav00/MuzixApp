@@ -1,7 +1,7 @@
 
 <div class="btn-group" style="width:100%">
     <button style="width:33.3%" (click)="goToArtist()"> Artist Wise Songs</button>
-    <button style="width:33.3%;background-color: rgb(136, 128, 201); color: black; " > Album Wise Songs</button>
+    <button style="width:33.3%;background-color: white; color: black; " > Album Wise Songs</button>
     <button style="width:33.3%" (click)="goToCountry()"> Video Songs</button>
   </div>
  
@@ -104,10 +104,10 @@
           
           <br>
           <br>
-          
+          <div class="btn-play-stop">
           <button #playBtn mat-flat-button color="primary" (click)="playSong(music)">PLAY</button>
             <button #stopBtn mat-button color="primary" (click)="stopSong(music)">STOP</button>
-           
+          </div>
        
     </mat-card> 
 

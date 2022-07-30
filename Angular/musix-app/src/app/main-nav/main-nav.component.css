@@ -4,12 +4,19 @@
 
 .sidenav {
     width: 200px;
-    box-shadow: 3px 0 6px grey;
+    box-shadow: 3px 0 6px rgb(46, 46, 46);
+    background-image: linear-gradient(180deg,#3498db ,#8e44dd );
 }
 
 .sidenav .mat-toolbar {
-    background: inherit;
+    background-image: linear-gradient(360deg,#3498db 25%,#8e44dd 75%);
 }
+.divif img{
+
+    background-color: white;
+    padding: -10px;
+}
+
 
 .mat-toolbar.mat-primary {
     position: sticky;
@@ -34,7 +41,7 @@
 }
 
 .material-icons.deeppurple {
-    color: rgb(73, 35, 113);
+    color:black;
 }
 
 .img-responsive.img-size {
@@ -42,11 +49,11 @@
     height: 175px;
     border-radius: 50%;
     margin: 10px;
-    border: 1px solid rgb(73, 35, 113);
+    border: 1px solid black;
 }
 
 .material-icons.edit {
-    color: rgb(73, 35, 113);
+    color: black;
 }
 
 li {

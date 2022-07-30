@@ -1,6 +1,6 @@
 
 .btn-group button {
-    background-color: rgb(93, 22, 169);
+    background-color: black;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     color: white; /* White text */
     padding: 10px 24px; /* Some padding */
@@ -77,7 +77,7 @@ h1{
 .noteCard{
     width:20vw;
     margin:20px;
-    border:2px solid rgb(207, 143, 233);
+    border:2px solid white;
     display: flex;
     flex-direction: column;
 }
@@ -92,17 +92,21 @@ h1{
     
 }
 mat-card{
-    margin: 40px;
-    padding:20px;
+    
+    margin: 10px;
+    padding:10px;
     position: relative;
-    border-radius: 11px;
-    width: 700px;
+    border-radius: 20px;
+    border-color: #000000;
+    border-style: double;
+    width: 280px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
 }
 mat-icon{
     position: absolute;
     top: 0;
     right: 0;
+    background-color: #000000;
 }
 .icon-actions{
     position: relative;
@@ -128,7 +132,7 @@ mat-icon{
 }
 
 .material-icons{
-    color: rgb(92, 85, 99); 
+    color: black; 
   }
 
   /* mat-card{
@@ -148,7 +152,7 @@ mat-icon{
    
   }
   .addtofav{
-    background-color: rgb(115, 72, 162); 
+    background-color: black;
     padding: 5px;
     color: white;
     cursor: pointer;
@@ -197,7 +201,7 @@ mat-form-field.mat-form-field-outline {
       
       .myDIV:hover + .hide {
         display: block;
-        color: rgb(115, 72, 162);
+        color: black;
       }
 
       .hide1 {
@@ -206,5 +210,10 @@ mat-form-field.mat-form-field-outline {
       
       .myDIV1:hover + .hide1 {
         display: block;
-        color: rgb(115, 72, 162);
+        color: black;
       }
+.btn-play-stop button{
+    color: white;
+    background-color: #000000;
+    margin: 10px;
+}
