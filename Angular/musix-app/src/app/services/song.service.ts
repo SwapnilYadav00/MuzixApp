@@ -34,7 +34,7 @@ export class SongService {
   registerUser: registeruser = new registeruser();
 
   fetchCommentsFromeServer(){
-    return this.httpclient.get<Array<comments>>('http://localhost:3005/comments').subscribe((data)=>{
+    return this.httpclient.get<Array<comments>>('http://localhost:3000/comments').subscribe((data)=>{
       this.allcomment=data;
       this.subject.next(this.allcomment);
     });
@@ -54,7 +54,7 @@ export class SongService {
   addComments(givecomment: comments): Observable<comments> {
 
     
-    return this.httpclient.post<comments>('http://localhost:3005/comments',givecomment).pipe(tap(
+    return this.httpclient.post<comments>('http://localhost:3000/comments',givecomment).pipe(tap(
       newcomment=>{
         console.log(newcomment);
         this.allcomment.push(newcomment);

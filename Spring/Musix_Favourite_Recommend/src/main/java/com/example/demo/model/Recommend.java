@@ -1,9 +1,5 @@
 package com.example.demo.model;
 
-import javax.annotation.processing.Generated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
