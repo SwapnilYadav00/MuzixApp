@@ -13,6 +13,7 @@ public class User {
     private String email;
     private String name;
     private String password;
+    @Column(name = "phone")
     private String image;
    // private String role;
     
@@ -26,6 +27,7 @@ public class User {
 	this.password = password;
 	this.image = image;
     }
+    
 
 
 	public String getName() {

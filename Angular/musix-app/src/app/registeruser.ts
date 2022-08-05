@@ -1,7 +1,7 @@
 export class registeruser{
     email:string;
     name:string;
-	image:any;
+	image:string;
 	password:string;
 
     constructor(){

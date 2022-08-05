@@ -122,11 +122,14 @@
           confirm password is not matching
       </small>
             </div>
-
-            <p><label class="img" for="file" style="cursor: pointer;">Upload Image</label></p>
-            <p><img id="output" width="200" /></p>
-            <p><input type="file" accept="image/*" name="image" id="file" formControlName="image" onchange="document.getElementById('output').src = window.URL.createObjectURL(event.target.files[0])" (change)="onFileSelected($event)" style="display: none;"></p>
-
+            <div>
+            <label class="img" for="image" >Phone Number</label>
+            <input type="text"  formControlName="image" placeholder="Mobile No.">
+            <small *ngIf="image.invalid && (image.dirty || image.touched)&& image.errors.minlength">
+                Number is not valid
+            </small>
+            
+        </div>
 
 
             <button mat-raised-button [disabled]="!registerForm.valid" color="primary" (click)="register()" onclick="document.getElementById('id02').style.display='none'">

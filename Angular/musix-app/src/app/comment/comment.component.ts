@@ -28,22 +28,7 @@ export class CommentComponent implements OnInit {
     this.trackpassdata=this.sharedservice.getcommentdataState();
    
 
-    this.songservice.getComments().subscribe(data => {
-      this.songcomment = data;
-
-      
-      for(let element in this.songcomment)
-      {
-      if(this.songcomment[element]['trackid']===this.trackpassdata.trackid)
-      {
-        //console.log(this.songcomment[element]['trackid']);
-        this.showcomments.push(this.songcomment[element]);
-
-      }
-      }
-
-      console.log(this.trackpassdata.trackImage);
-    })
+   
 
   }
 
@@ -61,18 +46,6 @@ export class CommentComponent implements OnInit {
       this.errMessage = 'Name and Comment both are required fields';
       return;
     }
-    this.songservice.addComments(this.newsongcomment).subscribe(response => {
-      if (response) {
-        
-        //this.newsongcomments.push(response);
-        //this.showcomments=[];
-        this.successMessage="Your comment has been successfully submitted";
-
-      } else {
-        this.errMessage = 'We are unable to add the selected comment.';
-      }
-    }, error => {
-      this.errMessage = error.message;
-    });
+    
   }
 }

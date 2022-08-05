@@ -48,11 +48,11 @@ public class UserController {
         } catch (UserExistsException e) {
             response = new
                     ResponseEntity<String>(HttpStatus.CONFLICT);
-            e.printStackTrace();
+            
         } catch (Exception e) {
             response = new
                     ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
-            e.printStackTrace();
+            
         }
         return response;
     }

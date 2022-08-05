@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   constructor(private routerservice: RouterService,public http: HttpService, private songservice: SongService,private authService: AuthenticationService,public dialog: MatDialog,private sharedservice:SharedService) { }
 
   ngOnInit(): void {
-
+      
   }
 
 
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
     email: new FormControl('',[Validators.required,Validators.email]),
     pass:new FormControl('',[Validators.required,Validators.minLength(8)]),
     confpass: new FormControl('', [Validators.required]),
-    image: new FormControl('', [Validators.required])
+    image: new FormControl('', [Validators.required,Validators.minLength(9)])
   })
 
   get name(){
@@ -72,10 +72,7 @@ export class HomeComponent implements OnInit {
   }
 
 
-  onFileSelected(event){
-    this.selectedfile=event.target.files[0];
-    console.log(this.selectedfile);
-  }
+ 
 
 
   // converttobinary(dataURI:any):any {
@@ -119,59 +116,28 @@ export class HomeComponent implements OnInit {
 
       // console.log("---->"+uploadImageData.get("imageFile"));
 
-      this.imageurl=this.image.value;
-       this.splitted =  this.imageurl.split("\\");
-       this.imagename=this.splitted[this.splitted.length-1];
-       console.log(this.imagename);//Use this for image
-
+      //this.imageurl=this.image.value;
+       //this.imagename=this.splitted[this.splitted.length-1];
+       
+      
 
       this.registerUser.email=this.email.value;
      
       this.registerUser.name=this.name.value;
-      console.log(this.registerUser.name);
-      this.registerUser.image=this.imagename;
+     
+      this.registerUser.image=this.image.value;
       this.registerUser.password=this.pass.value;
-      console.log(this.registerUser);
+
 
       this.songservice.registeringuser(this.registerUser).subscribe(data => {
-       
-        console.log(data);
-        // console.log(this.musics);
-        // console.log(this.musics[0].artistName);
-        // console.log(this.musics[0].albumName);
-      })
-
-       //Email sending
-
-    this.loading = true;
-    this.buttionText = "Submiting...";
-    console.log(this.email.value);
-    console.log(this.name.value);
-    let user = {
-      name: this.name.value,
-      email: this.email.value,
-     // Password: this.pass.value
-    }
-    this.http.sendEmail("http://localhost:3000/sendmail", user).subscribe(
-      data => {
-        let res:any = data; 
-        console.log(
-          `👏 > 👏 > 👏 > 👏 ${user.name} is successfully register and mail has been sent and the message id is ${res.messageId}`
-        );
-      },
-      err => {
-        console.log(err);
-        this.loading = false;
-        this.buttionText = "Submit";
-      },() => {
-        this.loading = false;
-        this.buttionText = "Submitted";
-        
         this.sharedservice.setdialogtitle("Registration Successfull!");
-        this.sharedservice.setdialogcontent("Registration Successfull! We have sent you a cofirmation Mail! Thank you");
-        this.openaddDialog();
-      }
-      );
+      this.sharedservice.setdialogcontent("Registration Successfull! Login To Continue");
+      this.openaddDialog();
+      },()=>{
+      this.sharedservice.setdialogtitle("Registration UnSuccessfull!");
+      this.sharedservice.setdialogcontent("Registration UnSuccessfull! User Exist");
+      this.openaddDialog();
+      }) 
       
     }
     else{

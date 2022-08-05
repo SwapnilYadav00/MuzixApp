@@ -1,8 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { MusicList,Songarr } from '../music-list';
-import { publishReplay, refCount } from 'rxjs/operators';
+import { catchError, publishReplay, refCount } from 'rxjs/operators';
 import { comments } from '../comment';
 import { tap } from 'rxjs/operators';
 import { favouriteSong } from '../favouriteSong';
@@ -21,7 +21,7 @@ export class SongService {
   subject:BehaviorSubject<Array<comments>>=new BehaviorSubject(this.allcomment);
 
   constructor(private httpclient:HttpClient) {
-    this.fetchCommentsFromeServer();
+    
    }
 
   newsongcomment: comments = new comments();
@@ -33,36 +33,23 @@ export class SongService {
 
   registerUser: registeruser = new registeruser();
 
-  fetchCommentsFromeServer(){
-    return this.httpclient.get<Array<comments>>('http://localhost:3000/comments').subscribe((data)=>{
-      this.allcomment=data;
-      this.subject.next(this.allcomment);
-    });
  
-  }
 
   registeringuser(registerUser: registeruser): Observable<registeruser> {
 
-    return this.httpclient.post<registeruser>('http://localhost:8282/register',registerUser);
+    return this.httpclient.post<registeruser>('http://localhost:8282/register',registerUser).pipe(catchError(err=>this.handleError(err)));
 
   }
 
-  getComments(): Observable<Array<comments>> {
-        return this.subject;
-      }
-
-  addComments(givecomment: comments): Observable<comments> {
-
-    
-    return this.httpclient.post<comments>('http://localhost:3000/comments',givecomment).pipe(tap(
-      newcomment=>{
-        console.log(newcomment);
-        this.allcomment.push(newcomment);
-        this.subject.next(this.allcomment);
-      }
-    ));
+  handleError(err){
+   
+    return throwError(err);
   }
 
+ 
+  
+
+ 
 
   addtofavourite(addfavouritesong: favouriteSong): Observable<favouriteSong> {
 
