@@ -14,7 +14,9 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.example.springboot.exception.UserExistsException;
+import com.example.springboot.exception.UserServicesException;
 import com.example.springboot.model.User;
+import com.example.springboot.model.UserHelper;
 import com.example.springboot.repository.UserRepository;
 
 @Service
@@ -70,5 +72,34 @@ public class UserService {
         return Optional.ofNullable(user);
     }
     
-
+    public String changePassword(UserHelper userHelper) throws UserServicesException {
+    	//System.out.println("hello");
+        User user = null;
+        Optional<User> userSearch =
+                userRepo.findById(userHelper.getEmail());
+        if(userSearch.isPresent()) {
+        user = userSearch.get();
+        System.out.println(userHelper.getOldPassword()+"    "+user.getPassword());
+        
+        if(BCrypt.checkpw(userHelper.getOldPassword(), user.getPassword())){
+        	
+        	String hashpw =
+                    BCrypt.hashpw(userHelper.getNewPassword(),
+                            BCrypt.gensalt());
+        	user.setPassword(hashpw);
+        	userRepo.save(user);
+        	 return "Password updated successfully";
+        }
+        
+//        if(existingUser.getPassword().equals(userHelper.getOldPassword())){
+//            existingUser.setPassword(userHelper.getNewPassword());
+//            userRepo.save(existingUser);
+//            return "Password updated successfully";
+//        }
+        return "Pls enter correct Old password";
+    }
+  
+    
+    return "error";
+    }
 }

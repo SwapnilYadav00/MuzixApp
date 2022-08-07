@@ -4,7 +4,7 @@ export class registeruser{
 	image:string;
 	password:string;
 
-    constructor(){
+   constructor(){
       
     }
 }

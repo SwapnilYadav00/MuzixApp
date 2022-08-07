@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.springboot.exception.UserExistsException;
 import com.example.springboot.exception.UserNotFoundException;
+import com.example.springboot.exception.UserServicesException;
 import com.example.springboot.model.User;
+import com.example.springboot.model.UserHelper;
 import com.example.springboot.repository.UserRepository;
 import com.example.springboot.service.UserService;
 
@@ -101,5 +104,23 @@ public class UserController {
 		}
 		return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
 	}
+    
+    @CrossOrigin(origins="*")
+    @PutMapping("/changePassword")
+    public ResponseEntity<?> changePassword(@RequestBody UserHelper userHelper) throws UserServicesException{
+    	 ResponseEntity<?> response = null;
+    	// System.out.println("hello");
+    	try {
+    		//System.out.println("hello");
+    	userService.changePassword(userHelper);
+    	 response = new
+                 ResponseEntity<String>(HttpStatus.OK);
+    	}catch (Exception e) {
+            response = new
+                    ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+           // System.out.println("hello");
+        }
+        return response;
+    }
     
 }

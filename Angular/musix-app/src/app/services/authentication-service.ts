@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { loginuser } from '../loginuser';
 
 
@@ -9,7 +10,9 @@ import { loginuser } from '../loginuser';
 export class AuthenticationService {
 
     loginUser: loginuser = new loginuser();
+    changePasswordEndPoint:string;
   constructor(private httpClient: HttpClient) {
+
   }
 
   authenticateUser(data:loginuser) {
@@ -36,6 +39,18 @@ export class AuthenticationService {
     return true;
   }
 
+  public changePasswordUser(UserHelper:any){
+    console.log("inside cP");
+   
+    return this.httpClient.put('http://localhost:8282/changePassword',UserHelper).pipe(catchError(err=>this.handleError(err)));
+
+  }
+
+  handleError(err){
+   
+    return throwError(err);
+  }
+  
 
 //   isUserAuthenticated(token:string): Promise<boolean> {
 //     return this.httpClient.post(`http://localhost:3000/auth/v1/isAuthenticated`,{},{

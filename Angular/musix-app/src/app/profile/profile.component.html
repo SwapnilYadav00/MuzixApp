@@ -16,9 +16,10 @@
             </div>
 
             <!-- Login Form -->
-            <form>
-                <input type="text" id="login" class="fadeIn second" name="login" placeholder="Old Password">
-                <input type="text" id="password" class="fadeIn third" name="login" placeholder="New Password">
+            <form (ngSubmit)="changepassword()" [formGroup]="changepasswordform" >
+                <input type="text"class="email" [(ngModel)]="name" formControlName="email" readonly>
+                <input type="text"  class="oldpassword" formControlName="oldpassword" placeholder="Old Password">
+                <input type="text" class="newpassword" formControlName="newpassword"placeholder="New Password">
                 <input type="submit" class="fadeIn fourth" value="Change Password">
             </form>
 
