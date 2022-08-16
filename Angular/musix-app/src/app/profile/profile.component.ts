@@ -31,7 +31,8 @@ export class ProfileComponent implements OnInit {
   changepasswordform=new FormGroup({
     newpassword: new FormControl(),
     oldpassword:new FormControl(),
-    email:new FormControl()
+    email:new FormControl(),
+    cnewpassword: new FormControl()
 })
 get newpassword(){
   return this.changepasswordform.get('newpassword');
@@ -42,6 +43,9 @@ get oldpassword(){
 get email(){
   return this.changepasswordform.get('email');
 }
+get cnewpassword(){
+  return this.changepasswordform.get('cnewpassword');
+}
 
 
   changepassword(){
@@ -49,17 +53,23 @@ get email(){
     this.userhelper.newPassword=this.newpassword.value;
     this.userhelper.email=this.email.value;
     
-
+    if(this.cnewpassword.value===this.newpassword.value){
     this.authService.changePasswordUser(this.userhelper).subscribe(data => {
       this.sharedservice.setdialogtitle("Password Change Successfull!");
+      this.sharedservice.setdialogcontent("")
     this.openaddDialog();
     },()=>{
     this.sharedservice.setdialogtitle("Password Change UnSuccessfull!");
-    
+    this.sharedservice.setdialogcontent("Old Password might be Wrong")
     this.openaddDialog();
     }) 
 
+  }else{
+    this.sharedservice.setdialogtitle("Password Change UnSuccessfull!");
+    this.sharedservice.setdialogcontent("New Password and Confirm New Password Not Matched")
+    this.openaddDialog();
   }
+}
   openaddDialog() {
     this.dialog.open(AddDialogComponent);
   }

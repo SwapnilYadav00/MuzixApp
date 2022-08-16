@@ -72,14 +72,17 @@ public class UserService {
         return Optional.ofNullable(user);
     }
     
-    public String changePassword(UserHelper userHelper) throws UserServicesException {
+    public void changePassword(UserHelper userHelper) throws UserServicesException {
     	//System.out.println("hello");
         User user = null;
+        String hashop =
+                BCrypt.hashpw(userHelper.getOldPassword(),
+                        BCrypt.gensalt());
         Optional<User> userSearch =
                 userRepo.findById(userHelper.getEmail());
         if(userSearch.isPresent()) {
         user = userSearch.get();
-        System.out.println(userHelper.getOldPassword()+"    "+user.getPassword());
+        System.out.println(hashop+"    "+user.getPassword());
         
         if(BCrypt.checkpw(userHelper.getOldPassword(), user.getPassword())){
         	
@@ -88,7 +91,10 @@ public class UserService {
                             BCrypt.gensalt());
         	user.setPassword(hashpw);
         	userRepo.save(user);
-        	 return "Password updated successfully";
+        	System.out.println("done");
+        	 
+        }else {
+        	throw new UserServicesException();
         }
         
 //        if(existingUser.getPassword().equals(userHelper.getOldPassword())){
@@ -96,10 +102,9 @@ public class UserService {
 //            userRepo.save(existingUser);
 //            return "Password updated successfully";
 //        }
-        return "Pls enter correct Old password";
+        
     }
   
     
-    return "error";
     }
 }

@@ -40,7 +40,7 @@ export class AuthenticationService {
   }
 
   public changePasswordUser(UserHelper:any){
-    console.log("inside cP");
+    
    
     return this.httpClient.put('http://localhost:8282/changePassword',UserHelper).pipe(catchError(err=>this.handleError(err)));
 

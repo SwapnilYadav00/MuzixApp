@@ -25,7 +25,7 @@ placeholder="Search your favourites">
    
     <mat-card *ngFor="let music of favmusicbyid | paginate: {itemsPerPage:6, currentPage:p};">
         <h3>{{music.trackName}}</h3>
-        <mat-icon class="song-delete">favorite</mat-icon>
+        <mat-icon class="song-delete" (click)="deletefav(music.id)">favorite</mat-icon>
         <mat-accordion>
             
             <mat-expansion-panel hideToggle>
@@ -60,7 +60,7 @@ placeholder="Search your favourites">
             </mat-card-content>
             <mat-card-actions>
                
-                <span class="icon-edit" routerLink="/comment"><mat-icon (click)="passvaluetocomment(music.trackName,music.trackId)" style="width:auto;">mode_edit</mat-icon></span>
+                <!-- <span class="icon-edit" ><mat-icon (click)="passvaluetocomment(music.trackName,music.trackId)" style="width:auto;">mode_edit</mat-icon></span> -->
                  
             </mat-card-actions>
            

@@ -16,6 +16,9 @@ import { recommendedcounter } from '../recommendcounter';
 })
 export class SongService {
 
+  url:string;
+  
+
   allcomment: Array<comments>=[];
 
   subject:BehaviorSubject<Array<comments>>=new BehaviorSubject(this.allcomment);
@@ -57,6 +60,12 @@ export class SongService {
     return this.httpclient.post<favouriteSong>('http://localhost:8080/favourites/addtofav',addfavouritesong);
   }
   
+  deletefavourite(id:number):Observable<any>{
+      console.log("in dFav ser");
+    this.url="http://localhost:8080/favourites/deletefav";
+    return this.httpclient.delete(`${this.url}/${id}`,{responseType:'text'});
+  }
+
   getFavouriteSongs(): Observable<Array<favouriteSong>> {
     return this.httpclient.get<Array<favouriteSong>>('http://localhost:8080/favourites/getallfav');
   }

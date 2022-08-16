@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterService } from '../services/router.service';
-import { AbstractControl, FormControl,  FormGroup,  Validator, Validators } from "@angular/forms";
+import { AbstractControl, FormControl,  FormGroup, Validators } from "@angular/forms";
 import { HttpService } from './http.service';
 import { registeruser } from '../registeruser';
 import { SongService } from '../services/song.service';

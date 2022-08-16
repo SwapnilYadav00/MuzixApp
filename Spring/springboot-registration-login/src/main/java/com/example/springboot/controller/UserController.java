@@ -102,7 +102,7 @@ public class UserController {
 			User user = per_user.get();
 			return new ResponseEntity<User>(user,HttpStatus.OK);
 		}
-		return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<User>(HttpStatus.CONFLICT);
 	}
     
     @CrossOrigin(origins="*")
@@ -115,9 +115,14 @@ public class UserController {
     	userService.changePassword(userHelper);
     	 response = new
                  ResponseEntity<String>(HttpStatus.OK);
-    	}catch (Exception e) {
+    	}catch(UserServicesException e) {
+    		response = new
+                    ResponseEntity<String>(HttpStatus.CONFLICT);
+    	}
+    	
+    	catch (Exception e) {
             response = new
-                    ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+                    ResponseEntity<String>(HttpStatus.BAD_REQUEST);
            // System.out.println("hello");
         }
         return response;
